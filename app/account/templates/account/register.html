@@ -1,0 +1,47 @@
+{% extends 'account/base_auth.html' %}
+
+{% block title %}
+    Register - {{ block.super }}
+{% endblock %}
+
+
+{% block content %}
+    <div class="main-w3layouts wrapper">
+        <h1>Sign Up</h1>
+        <div class="main-agileinfo">
+            <div class="agileits-top">
+                <form action="#" method="post">
+                    <input class="text" type="text" name="Username" placeholder="Username" required="">
+                    <input class="text email" type="email" name="email" placeholder="Email" required="">
+                    <input class="text password" type="password" name="password" placeholder="Password" required="">
+                    <div class="wthree-text">
+                        <label class="anim">
+                            <input type="checkbox" class="checkbox" required="">
+                            <span>I Agree To The Terms & Conditions</span>
+                        </label>
+                        <div class="clear"></div>
+                    </div>
+                    <input type="submit" value="SIGNUP">
+                </form>
+                <p>Have an Account? <a href="{% url 'account:login' %}"> Login Now!</a></p>
+            </div>
+        </div>
+        <div class="colorlibcopy-agile">
+            <p>© 2020 Blog. All rights reserved | Design by <a href="https://vk.com/python_biba"
+                                                                               target="_blank">Gost1k</a>
+            </p>
+        </div>
+        <ul class="colorlib-bubbles">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+{% endblock %}

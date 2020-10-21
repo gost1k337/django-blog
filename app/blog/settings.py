@@ -34,7 +34,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
 
-    'blog_app.apps.BlogAppConfig'
+    'account.apps.AccountConfig',
+    'blog_app.apps.BlogAppConfig',
 ]
 
 MIDDLEWARE = [
@@ -124,3 +125,5 @@ STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
 MEDIA_URL = "/mediafiles/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "mediafiles")
+
+AUTH_USER_MODEL = 'account.Account'
