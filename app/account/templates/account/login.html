@@ -10,9 +10,12 @@
         <h1>Login</h1>
         <div class="main-agileinfo">
             <div class="agileits-top">
-                <form action="#" method="post">
-                    <input class="text email" type="email" name="email" placeholder="Email" required="">
-                    <input class="text password" type="password" name="password" placeholder="Password" required="">
+                <form action="/accounts/login/" method="post">
+                    {% csrf_token %}
+                    {{ form.email }}
+                    {{ form.password }}
+                    {{ form.errors.email }}
+                    {{ form.errors.password }}
                     <input type="submit" value="LOGIN">
                 </form>
                 <p>Don't have an Account? <a href="{% url 'account:register' %}"> Register Now!</a></p>

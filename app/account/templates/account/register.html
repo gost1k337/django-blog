@@ -10,10 +10,14 @@
         <h1>Sign Up</h1>
         <div class="main-agileinfo">
             <div class="agileits-top">
-                <form action="#" method="post">
+                <form action="/accounts/register/" method="post">
+                    {% csrf_token %}
                     {{ form.username }}
                     {{ form.email }}
                     {{ form.password }}
+                    {{ form.errors.username }}
+                    {{ form.errors.email }}
+                    {{ form.errors.password }}
                     <div class="wthree-text">
                         <label class="anim">
                             <input type="checkbox" class="checkbox" required="">

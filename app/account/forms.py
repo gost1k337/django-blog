@@ -1,5 +1,5 @@
 from django import forms
-from .models import Account
+from django.contrib.auth import get_user_model
 
 
 class RegisterForm(forms.ModelForm):
@@ -13,18 +13,13 @@ class RegisterForm(forms.ModelForm):
         (attrs={'class': 'text password', 'name': 'password', 'placeholder': 'Password'}))
 
     class Meta:
-        model = Account
+        model = get_user_model()
         fields = ('username', 'email', 'password')
 
 
-class LoginForm(forms.ModelForm):
+class LoginForm(forms.Form):
     email = forms.EmailField(widget=forms.EmailInput
         (attrs={'class': 'text email', 'name': 'email', 'placeholder': 'Email'}))
 
     password = forms.CharField(widget=forms.PasswordInput
         (attrs={'class': 'text password', 'name': 'password', 'placeholder': 'Password'}))
-
-    class Meta:
-        model = Account
-        fields = ('username', 'email', 'password')
-

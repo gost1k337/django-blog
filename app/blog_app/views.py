@@ -1,8 +1,11 @@
 from django.shortcuts import render
 from django.views import View
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
-class NewsView(View):
+class HomeView(LoginRequiredMixin, View):
+    login_url = '/accounts/login/'
+
     def get(self, request):
-        return render(request, 'blog_app/news_list.html')
+        return render(request, 'blog_app/home_page.html')
 

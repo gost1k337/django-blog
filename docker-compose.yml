@@ -19,8 +19,20 @@ services:
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=root
-      - POSTGRES_DB=blog
+      - POSTGRES_DB=blog_db
       - POSTGRES_PORT=5432
-
+      - POSTGRES_HOST=postgres
+    ports:
+      - 5432:5432
+  pgadmin:
+    image: dpage/pgadmin4
+    depends_on:
+      - db
+    ports:
+      - 5555:80
+    environment:
+      PGADMIN_DEFAULT_PASSWORD: root
+      PGADMIN_DEFAULT_EMAIL: gost1k337@gmail.com
+    restart: unless-stopped
 volumes:
   postgres_data:

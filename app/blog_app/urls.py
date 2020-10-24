@@ -1,7 +1,9 @@
 from django.http import HttpResponse
 from django.urls import path
-from .views import NewsView
+from .views import HomeView
+
+app_name = 'blog'
 
 urlpatterns = [
-    path('', NewsView.as_view())
+    path('', HomeView.as_view(), name='home')
 ]
