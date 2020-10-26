@@ -9,6 +9,8 @@ from .forms import RegisterForm, LoginForm
 class RegisterView(View):
     @staticmethod
     def get(request):
+        if request.user.is_authenticated:
+            return redirect('blog:home')
         form = RegisterForm()
         return render(request, 'account/register.html', {'form': form})
 
@@ -16,7 +18,6 @@ class RegisterView(View):
     def post(request):
         context = {}
         form = RegisterForm(request.POST)
-        print(form.fields)
         if form.is_valid():
             user = form.save(commit=False)
             user.save()
@@ -27,23 +28,27 @@ class RegisterView(View):
         return render(request, 'account/register.html', context)
 
 
-class LoginView(FormView):
-    form_class = LoginForm
-    success_url = reverse_lazy('blog:home')
-    template_name = 'account/login.html'
+class LoginView(View):
+    @staticmethod
+    def get(request):
+        if request.user.is_authenticated:
+            return redirect('blog:home')
+        form = LoginForm()
+        return render(request, 'account/login.html', {'form': form})
 
-    def form_valid(self, form):
-        print('form_valid', 'True')
-        credentials = form.cleaned_data
-
-        user = authenticate(email=credentials['email'],
-                            password=credentials['password'])
-
-        if user is not None:
-            login(self.request, user)
-            return HttpResponseRedirect(self.success_url)
-
-        return HttpResponseRedirect(reverse_lazy('account:login'))
+    @staticmethod
+    def post(request):
+        context = {}
+        form = LoginForm(request.POST)
+        if form.is_valid():
+            credentials = form.cleaned_data
+            user = authenticate(username=credentials['email'],
+                                password=credentials['password'])
+            if user is not None:
+                login(request, user)
+                return redirect('blog:home')
+        context['form'] = form
+        return redirect('account:login')
 
 
 def LogoutView(request):

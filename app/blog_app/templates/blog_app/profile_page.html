@@ -1,0 +1,28 @@
+{% extends 'blog_app/base_generic.html' %}
+{% load static %}
+
+{% block title %}
+    Profile - {{ block.super }}
+{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/profile_page.css' %}" type="text/css">
+{% endblock %}
+
+
+{% block content %}
+    <div class="row bg-dark">
+        <div class="col-8 offset-2">
+            <div class="profile__view text-white">
+                <div class="profile__avatar">
+                    <img src="http://placehold.it/150x150" alt="">
+                </div>
+                <div class="profile__name">
+                    <h3>Miracle</h3>
+                    <h6>gost1k337@gmail.com</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

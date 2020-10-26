@@ -12,6 +12,13 @@ class RegisterForm(forms.ModelForm):
     password = forms.CharField(widget=forms.PasswordInput
         (attrs={'class': 'text password', 'name': 'password', 'placeholder': 'Password'}))
 
+    def save(self, commit=True):
+        user = super(RegisterForm, self).save(commit=False)
+        user.set_password(user.password)  # set password properly before commit
+        if commit:
+            user.save()
+        return user
+
     class Meta:
         model = get_user_model()
         fields = ('username', 'email', 'password')
