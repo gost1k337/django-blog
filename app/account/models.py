@@ -44,6 +44,7 @@ class Account(AbstractUser):
     birth_date = models.DateField(blank=True, null=True)
     first_name = models.CharField(max_length=255, blank=True, default='')
     second_name = models.CharField(max_length=255, blank=True, default='')
+    status = models.CharField(max_length=255, blank=True, default='')
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['username']
