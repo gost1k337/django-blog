@@ -1,9 +1,107 @@
+.profile {
+    padding: 20px 0;
+    background: #f3f3f3;
+}
+
+.followers-avatar {
+    border-radius: 30%;
+    width: 50px;
+    height: 50px;
+}
+
+.status {
+    font-size: 16px;
+    margin-left: 10px;
+    color: #939393;
+}
+
+.profile__avatar img{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+
 .profile__view {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.profile__name {
-    text-align: center;
+.profile__detail {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 40px;
 }
+
+.profile__detail a small {
+    font-size: 14px;
+}
+
+.list-group-item {
+    border-radius: 10px;
+}
+
+.list-group-item a:hover {
+    text-decoration: none;
+}
+
+.list-group-item a span:hover {
+    text-decoration: underline;
+}
+
+.list-group-item a span {
+    margin-left: 15px;
+}
+
+.profile__posts {
+    flex: 0 0 70%;
+}
+
+.profile__posts-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.profile__posts-list {
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.card {
+    width: 85%;
+    margin-top: 2rem;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.post__marks {
+    display: flex;
+}
+
+.post__likes {
+    margin-right: 1rem;
+}
+
+.post__marks-item {
+    cursor: pointer;
+}
+
+.post__marks-item i {
+    color: #000;
+}
+
+.profile__user-followers {
+    flex: 0 0 25%;
+}
+
+.card-img {
+    object-fit: contain;
+    margin: 0 auto;
+}
+

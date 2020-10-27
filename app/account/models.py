@@ -42,8 +42,8 @@ class Account(AbstractUser):
     username = models.CharField(max_length=255, unique=False)
     followers = models.ManyToManyField('self', related_name='followers', blank=True)
     birth_date = models.DateField(blank=True, null=True)
-    first_name = models.CharField(blank=True, default='')
-    second_name = models.CharField(blank=True, default='')
+    first_name = models.CharField(max_length=255, blank=True, default='')
+    second_name = models.CharField(max_length=255, blank=True, default='')
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['username']
