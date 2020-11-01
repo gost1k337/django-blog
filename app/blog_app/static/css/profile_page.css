@@ -39,7 +39,7 @@
 }
 
 .list-group-item {
-    border-radius: 10px;
+    border-radius: 10px!important;
 }
 
 .list-group-item a:hover {
